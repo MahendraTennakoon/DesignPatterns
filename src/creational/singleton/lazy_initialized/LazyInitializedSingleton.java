@@ -5,7 +5,11 @@ public class LazyInitializedSingleton {
 
     private LazyInitializedSingleton() {}
 
-    public LazyInitializedSingleton getInstance() {
+    public static LazyInitializedSingleton getInstance() {
+        /**
+         * Not thread safe.
+         * If multiple threads access the following if block simultaneously, two instances will be created.
+         */
         if (instance == null) {
             instance = new LazyInitializedSingleton();
         }
